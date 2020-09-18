@@ -1,43 +1,43 @@
 
 
-var CB = document.querySelectorAll('[type="checkbox"]');
-var CF = document.getElementsByClassName("card course");
-var U = document.forms.form;
-var RO1 = U.getElementsByClassName("circ");
-var RO2 = U.getElementsByClassName("but");
+var CHECKBOX = document.querySelectorAll('[type="checkbox"]');
+var CARDCOURSE = document.getElementsByClassName("card course");
+var DOC = document.forms.form;
+var CIRCLE = DOC.getElementsByClassName("circ");
+var BUTTON = DOC.getElementsByClassName("but");
 
-U.onchange = function () {
+DOC.onchange = function () {
     let count = 0;
-    h = document.getElementsByTagName("h1")[0];
+    h1 = document.getElementsByTagName("h1")[0];
     for (let i = 0; i <6; i++) {
-        if (CB[i].checked) {
-            CF[i].style.backgroundColor = '#FED230';
-            RO1[i].style.backgroundColor = 'white';
-            RO2[i].innerHTML = 'Пройдено!';
-            RO2[i].style.borderColor = '#FED230';
+        if (CHECKBOX[i].checked) {
+            CARDCOURSE[i].style.backgroundColor = '#FED230';
+            CIRCLE[i].style.backgroundColor = 'white';
+            BUTTON[i].innerHTML = 'Пройдено!';
+            BUTTON[i].style.borderColor = '#FED230';
             count ++;
         }
         else {
-            CF[i].style.backgroundColor = 'white';
-            RO1[i].style.backgroundColor = '#FED230';
-            RO2[i].innerHTML = 'Пройти';
-            RO2[i].style.borderColor = 'black';
+            CARDCOURSE[i].style.backgroundColor = 'white';
+            CIRCLE[i].style.backgroundColor = '#FED230';
+            BUTTON[i].innerHTML = 'Пройти';
+            BUTTON[i].style.borderColor = 'black';
         }
     }
-    switch (count) {
+    switch (count) { 
         case 0:
-            h.innerHTML = 'Ты не прошел ни одного курса';
+            h1.innerHTML = 'Ты не прошел ни одного курса';
             break;
         case 1:
-            h.innerHTML = 'Ты прошел 1 курс';
+            h1.innerHTML = 'Ты прошел 1 курс';
             break;
         case 6:
-            h.innerHTML = 'Ты прошел все курсы';
+            h1.innerHTML = 'Ты прошел все курсы';
             break;
         case 5:
-            h.innerHTML = 'Ты прошел 5 курсов';
+            h1.innerHTML = 'Ты прошел 5 курсов';
             break;
         default:
-            h.innerHTML = `Ты прошел ${count} курса`;
+            h1.innerHTML = `Ты прошел ${count} курса`;
     }
 }
